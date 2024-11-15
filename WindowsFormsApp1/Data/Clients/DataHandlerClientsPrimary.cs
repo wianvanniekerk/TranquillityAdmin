@@ -1,8 +1,15 @@
-﻿using System;
+﻿using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using MySql.Data.MySqlClient;
 using MySqlX.XDevAPI;
+using System.IO;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Drawing;
+using System.Text.RegularExpressions;
 
 namespace WindowsFormsApp1.Data.Clients
 {
@@ -10,16 +17,38 @@ namespace WindowsFormsApp1.Data.Clients
     {
         private string connect = $"Server={EnvConfig.server}; Database={EnvConfig.database}; User ID={EnvConfig.userId}; Password={EnvConfig.password};";
 
-        public List<string> imagePaths = new List<string>();
+        private Cloudinary cloudinary;
+        public List<string> imageUrls = new List<string>();
         public int currentImageIndex = -1;
+
+        public DataHandlerClientsPrimary()
+        {
+            Account account = new Account(
+                EnvConfig.cloudinaryCloud,
+                EnvConfig.cloudinaryKey,
+                EnvConfig.cloudinarySecret);
+            cloudinary = new Cloudinary(account);
+        }
+
+        private string SanitizePublicId(string input)
+        {
+            string sanitized = Regex.Replace(input, @"[^a-zA-Z0-9_-]", "_");
+
+            if (sanitized.Length > 255)
+            {
+                sanitized = sanitized.Substring(0, 255);
+            }
+
+            return sanitized;
+        }
 
         public void LoadImagesForClient(int clientId)
         {
-            imagePaths.Clear();
+            imageUrls.Clear();
             using (var connection = new MySqlConnection(connect))
             {
                 connection.Open();
-                string query = "SELECT ImagePath FROM ClientImages WHERE ClientId = @ClientId";
+                string query = "SELECT ImageUrl FROM ClientImages WHERE ClientId = @ClientId";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ClientId", clientId);
@@ -27,42 +56,107 @@ namespace WindowsFormsApp1.Data.Clients
                     {
                         while (reader.Read())
                         {
-                            imagePaths.Add(reader.GetString("ImagePath"));
+                            imageUrls.Add(reader.GetString("ImageUrl"));
                         }
                     }
                 }
             }
-            currentImageIndex = imagePaths.Count > 0 ? 0 : -1;
+            currentImageIndex = imageUrls.Count > 0 ? 0 : -1;
+        }
+        public async Task<string> UploadImageToCloudinary(string filePath, int clientId)
+        {
+            try
+            {
+                if (!File.Exists(filePath))
+                {
+                    throw new FileNotFoundException($"The file at path {filePath} does not exist.");
+                }
+
+                string fileName = Path.GetFileNameWithoutExtension(filePath);
+                string sanitizedPublicId = SanitizePublicId($"client_{clientId}_{fileName}");
+
+                var uploadParams = new ImageUploadParams()
+                {
+                    File = new FileDescription(filePath),
+                    Folder = "Tranquillity/ClientImages",
+                    PublicId = sanitizedPublicId,
+                };
+
+                var uploadResult = await cloudinary.UploadAsync(uploadParams);
+
+                if (uploadResult.Error != null)
+                {
+                    throw new Exception($"Cloudinary upload error: {uploadResult.Error.Message}");
+                }
+
+                if (string.IsNullOrEmpty(uploadResult.SecureUrl?.ToString()))
+                {
+                    throw new Exception("Cloudinary upload successful, but SecureUrl is null or empty.");
+                }
+
+                return uploadResult.SecureUrl.ToString();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error uploading image to Cloudinary: {ex.Message}");
+                throw;
+            }
         }
 
-        public void SaveImagePathToDatabase(string imagePath, int clientId)
+        public void SaveImageUrlToDatabase(string imageUrl, int clientId)
         {
             using (var connection = new MySqlConnection(connect))
             {
                 connection.Open();
-                string query = "INSERT INTO ClientImages (ClientId, ImagePath) VALUES (@ClientId, @ImagePath)";
+                string query = "INSERT INTO ClientImages (ClientId, ImageUrl) VALUES (@ClientId, @ImageUrl)";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ClientId", clientId);
-                    command.Parameters.AddWithValue("@ImagePath", imagePath);
+                    command.Parameters.AddWithValue("@ImageUrl", imageUrl);
                     command.ExecuteNonQuery();
                 }
             }
         }
 
-        public void DeleteImageFromDatabase(string imagePath, int clientId)
+        public async Task DeleteImageFromCloudinary(string imageUrl)
+        {
+            var publicId = GetPublicIdFromUrl(imageUrl);
+            var deleteParams = new DeletionParams(publicId);
+            await cloudinary.DestroyAsync(deleteParams);
+        }
+
+        public void DeleteImageFromDatabase(string imageUrl, int clientId)
         {
             using (var connection = new MySqlConnection(connect))
             {
                 connection.Open();
-                string query = "DELETE FROM ClientImages WHERE ClientId = @ClientId AND ImagePath = @ImagePath";
+                string query = "DELETE FROM ClientImages WHERE ClientId = @ClientId AND ImageUrl = @ImageUrl";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@ClientId", clientId);
-                    command.Parameters.AddWithValue("@ImagePath", imagePath);
+                    command.Parameters.AddWithValue("@ImageUrl", imageUrl);
                     command.ExecuteNonQuery();
                 }
             }
+        }
+
+        public async Task<Image> DownloadImageFromCloudinary(string imageUrl)
+        {
+            using (var webClient = new System.Net.WebClient())
+            {
+                var imageBytes = await webClient.DownloadDataTaskAsync(imageUrl);
+                using (var ms = new MemoryStream(imageBytes))
+                {
+                    return Image.FromStream(ms);
+                }
+            }
+        }
+
+        private string GetPublicIdFromUrl(string url)
+        {
+            var uri = new Uri(url);
+            var pathSegments = uri.AbsolutePath.Split('/');
+            return string.Join("/", pathSegments.Skip(pathSegments.Length - 2));
         }
 
         public string GetClientName(int clientId)

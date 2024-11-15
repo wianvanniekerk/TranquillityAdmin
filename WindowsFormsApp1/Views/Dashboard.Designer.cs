@@ -42,20 +42,19 @@
             // 
             this.lblDashboardHeader.AutoSize = true;
             this.lblDashboardHeader.Font = new System.Drawing.Font("Haettenschweiler", 38F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDashboardHeader.Location = new System.Drawing.Point(498, 9);
-            this.lblDashboardHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblDashboardHeader.Location = new System.Drawing.Point(240, 19);
             this.lblDashboardHeader.Name = "lblDashboardHeader";
-            this.lblDashboardHeader.Size = new System.Drawing.Size(479, 53);
+            this.lblDashboardHeader.Size = new System.Drawing.Size(733, 67);
             this.lblDashboardHeader.TabIndex = 0;
-            this.lblDashboardHeader.Text = "Tranquillity Admin Dashboard";
+            this.lblDashboardHeader.Text = "Tranquillity Admin Dashboard - Main";
             // 
             // btnDashboardOrders
             // 
             this.btnDashboardOrders.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboardOrders.Location = new System.Drawing.Point(41, 489);
-            this.btnDashboardOrders.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDashboardOrders.Location = new System.Drawing.Point(55, 602);
+            this.btnDashboardOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboardOrders.Name = "btnDashboardOrders";
-            this.btnDashboardOrders.Size = new System.Drawing.Size(365, 226);
+            this.btnDashboardOrders.Size = new System.Drawing.Size(487, 278);
             this.btnDashboardOrders.TabIndex = 1;
             this.btnDashboardOrders.Text = "Orders";
             this.btnDashboardOrders.UseVisualStyleBackColor = true;
@@ -64,10 +63,10 @@
             // btnDashboardAppointments
             // 
             this.btnDashboardAppointments.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboardAppointments.Location = new System.Drawing.Point(41, 184);
-            this.btnDashboardAppointments.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDashboardAppointments.Location = new System.Drawing.Point(55, 226);
+            this.btnDashboardAppointments.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboardAppointments.Name = "btnDashboardAppointments";
-            this.btnDashboardAppointments.Size = new System.Drawing.Size(365, 229);
+            this.btnDashboardAppointments.Size = new System.Drawing.Size(487, 282);
             this.btnDashboardAppointments.TabIndex = 2;
             this.btnDashboardAppointments.Text = "Appointments";
             this.btnDashboardAppointments.UseVisualStyleBackColor = true;
@@ -76,10 +75,10 @@
             // btnDashboardCommunication
             // 
             this.btnDashboardCommunication.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboardCommunication.Location = new System.Drawing.Point(1120, 184);
-            this.btnDashboardCommunication.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDashboardCommunication.Location = new System.Drawing.Point(1493, 226);
+            this.btnDashboardCommunication.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboardCommunication.Name = "btnDashboardCommunication";
-            this.btnDashboardCommunication.Size = new System.Drawing.Size(365, 228);
+            this.btnDashboardCommunication.Size = new System.Drawing.Size(487, 281);
             this.btnDashboardCommunication.TabIndex = 3;
             this.btnDashboardCommunication.Text = "Communication";
             this.btnDashboardCommunication.UseVisualStyleBackColor = true;
@@ -88,10 +87,10 @@
             // btnDashboardProducts
             // 
             this.btnDashboardProducts.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboardProducts.Location = new System.Drawing.Point(580, 489);
-            this.btnDashboardProducts.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDashboardProducts.Location = new System.Drawing.Point(773, 602);
+            this.btnDashboardProducts.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboardProducts.Name = "btnDashboardProducts";
-            this.btnDashboardProducts.Size = new System.Drawing.Size(365, 226);
+            this.btnDashboardProducts.Size = new System.Drawing.Size(487, 278);
             this.btnDashboardProducts.TabIndex = 4;
             this.btnDashboardProducts.Text = "Products";
             this.btnDashboardProducts.UseVisualStyleBackColor = true;
@@ -100,10 +99,10 @@
             // btnDashboardClients
             // 
             this.btnDashboardClients.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboardClients.Location = new System.Drawing.Point(580, 184);
-            this.btnDashboardClients.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDashboardClients.Location = new System.Drawing.Point(773, 226);
+            this.btnDashboardClients.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboardClients.Name = "btnDashboardClients";
-            this.btnDashboardClients.Size = new System.Drawing.Size(365, 228);
+            this.btnDashboardClients.Size = new System.Drawing.Size(487, 281);
             this.btnDashboardClients.TabIndex = 5;
             this.btnDashboardClients.Text = "Clients";
             this.btnDashboardClients.UseVisualStyleBackColor = true;
@@ -112,10 +111,10 @@
             // btnDashboardStaff
             // 
             this.btnDashboardStaff.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDashboardStaff.Location = new System.Drawing.Point(1120, 489);
-            this.btnDashboardStaff.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDashboardStaff.Location = new System.Drawing.Point(1493, 602);
+            this.btnDashboardStaff.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboardStaff.Name = "btnDashboardStaff";
-            this.btnDashboardStaff.Size = new System.Drawing.Size(365, 226);
+            this.btnDashboardStaff.Size = new System.Drawing.Size(487, 278);
             this.btnDashboardStaff.TabIndex = 6;
             this.btnDashboardStaff.Text = "Staff";
             this.btnDashboardStaff.UseVisualStyleBackColor = true;
@@ -126,10 +125,10 @@
             this.btnDashboardNotifications.BackColor = System.Drawing.SystemColors.Highlight;
             this.btnDashboardNotifications.Font = new System.Drawing.Font("Segoe UI Semibold", 15F);
             this.btnDashboardNotifications.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnDashboardNotifications.Location = new System.Drawing.Point(1148, 9);
-            this.btnDashboardNotifications.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDashboardNotifications.Location = new System.Drawing.Point(1531, 11);
+            this.btnDashboardNotifications.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnDashboardNotifications.Name = "btnDashboardNotifications";
-            this.btnDashboardNotifications.Size = new System.Drawing.Size(287, 89);
+            this.btnDashboardNotifications.Size = new System.Drawing.Size(383, 110);
             this.btnDashboardNotifications.TabIndex = 7;
             this.btnDashboardNotifications.Text = "Notifications";
             this.btnDashboardNotifications.UseVisualStyleBackColor = false;
@@ -137,9 +136,10 @@
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1446, 802);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1924, 987);
             this.Controls.Add(this.btnDashboardNotifications);
             this.Controls.Add(this.btnDashboardAppointments);
             this.Controls.Add(this.btnDashboardStaff);
@@ -148,7 +148,7 @@
             this.Controls.Add(this.btnDashboardCommunication);
             this.Controls.Add(this.btnDashboardProducts);
             this.Controls.Add(this.btnDashboardOrders);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Dashboard";
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);

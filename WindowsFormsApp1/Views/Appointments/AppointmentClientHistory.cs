@@ -21,6 +21,7 @@ namespace WindowsFormsApp1.Views.Appointments
     public partial class AppointmentClientHistory : Form
     {
         private int appointmentId;
+        private int clientId;
         private DataHandlerAppointmentClientHistory handler = new DataHandlerAppointmentClientHistory();
         private DataTable appointmentClientHistoryGeneralDataTable;
         private DataTable appointmentClientHistoryMedicalDataTable;
@@ -33,10 +34,11 @@ namespace WindowsFormsApp1.Views.Appointments
 
         private DateTimePicker dateTimePicker = new DateTimePicker();
 
-        public AppointmentClientHistory(int _appointmentID, AppointmentsView parent)
+        public AppointmentClientHistory(int _appointmentID, int _clientID, AppointmentsView parent)
         {
             InitializeComponent();
             appointmentId = _appointmentID;
+            clientId = _clientID;
             this.WindowState = FormWindowState.Maximized;
             this.parentForm = parent;
         }
@@ -52,7 +54,7 @@ namespace WindowsFormsApp1.Views.Appointments
 
         private void SetupHistoryDataGeneralGridView()
         {
-            dgvAppointmentClientHistoryGeneral.AllowUserToAddRows = false;
+            dgvAppointmentClientHistoryGeneral.AllowUserToAddRows = true;
             dgvAppointmentClientHistoryGeneral.AllowUserToDeleteRows = false;
             dgvAppointmentClientHistoryGeneral.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
             dgvAppointmentClientHistoryGeneral.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -82,7 +84,7 @@ namespace WindowsFormsApp1.Views.Appointments
 
         private void SetupHistoryDataMedicalGridView()
         {
-            dgvAppointmentClientHistoryMedical.AllowUserToAddRows = false;
+            dgvAppointmentClientHistoryMedical.AllowUserToAddRows = true;
             dgvAppointmentClientHistoryMedical.AllowUserToDeleteRows = false;
             dgvAppointmentClientHistoryMedical.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
             dgvAppointmentClientHistoryMedical.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -112,7 +114,7 @@ namespace WindowsFormsApp1.Views.Appointments
 
         private void SetupHistoryDataMedicationGridView()
         {
-            dgvAppointmentClientHistoryMedication.AllowUserToAddRows = false;
+            dgvAppointmentClientHistoryMedication.AllowUserToAddRows = true;
             dgvAppointmentClientHistoryMedication.AllowUserToDeleteRows = false;
             dgvAppointmentClientHistoryMedication.EditMode = DataGridViewEditMode.EditOnKeystrokeOrF2;
             dgvAppointmentClientHistoryMedication.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
@@ -497,21 +499,21 @@ namespace WindowsFormsApp1.Views.Appointments
 
                 if (appointmentClientHistoryGeneralChanges != null)
                 {
-                    handler.UpdateAppointmentClientHistory(appointmentClientHistoryGeneralChanges, appointmentId);
+                    handler.UpdateAppointmentClientHistory(appointmentClientHistoryGeneralChanges, appointmentId, clientId);
                     MessageBox.Show("Client's history details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadAppointmentClientGeneralData();
                 }
 
                 if (appointmentClientHistoryMedicalChanges != null)
                 {
-                    handler.UpdateAppointmentClientHistory(appointmentClientHistoryMedicalChanges, appointmentId);
+                    handler.UpdateAppointmentClientHistory(appointmentClientHistoryMedicalChanges, appointmentId, clientId);
                     MessageBox.Show("Client's history details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadAppointmentClientMedicalData();
                 }
 
                 if (appointmentClientHistoryMedicationChanges != null)
                 {
-                    handler.UpdateAppointmentClientHistory(appointmentClientHistoryMedicationChanges, appointmentId);
+                    handler.UpdateAppointmentClientHistory(appointmentClientHistoryMedicationChanges, appointmentId, clientId);
                     MessageBox.Show("Client's history details updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadAppointmentClientMedicationData();
                 }

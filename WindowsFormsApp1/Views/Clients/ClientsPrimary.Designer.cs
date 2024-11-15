@@ -41,7 +41,6 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip5 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnClientMedicalHistory = new System.Windows.Forms.Button();
             this.tabClientsPrimaryProductUsage = new System.Windows.Forms.TabPage();
             this.lblClientsSecondaryProductUsage = new System.Windows.Forms.Label();
             this.dgvClientsSecondaryProductUsage = new System.Windows.Forms.DataGridView();
@@ -85,12 +84,12 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteRecordToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(174, 28);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(148, 26);
             // 
             // deleteRecordToolStripMenuItem
             // 
             this.deleteRecordToolStripMenuItem.Name = "deleteRecordToolStripMenuItem";
-            this.deleteRecordToolStripMenuItem.Size = new System.Drawing.Size(173, 24);
+            this.deleteRecordToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.deleteRecordToolStripMenuItem.Text = "Delete Record";
             this.deleteRecordToolStripMenuItem.Click += new System.EventHandler(this.deleteRecordToolStripMenuItem_Click);
             // 
@@ -100,12 +99,12 @@
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.deleteRecordToolStripMenuItem2});
             this.contextMenuStrip2.Name = "contextMenuStrip1";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(174, 28);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(148, 26);
             // 
             // deleteRecordToolStripMenuItem2
             // 
             this.deleteRecordToolStripMenuItem2.Name = "deleteRecordToolStripMenuItem2";
-            this.deleteRecordToolStripMenuItem2.Size = new System.Drawing.Size(173, 24);
+            this.deleteRecordToolStripMenuItem2.Size = new System.Drawing.Size(147, 22);
             this.deleteRecordToolStripMenuItem2.Text = "Delete Record";
             this.deleteRecordToolStripMenuItem2.Click += new System.EventHandler(this.deleteRecordToolStripMenuItem2_Click);
             // 
@@ -113,7 +112,7 @@
             // 
             this.btnClientsDetailBack.Font = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.btnClientsDetailBack.Location = new System.Drawing.Point(15, 644);
-            this.btnClientsDetailBack.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClientsDetailBack.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClientsDetailBack.Name = "btnClientsDetailBack";
             this.btnClientsDetailBack.Size = new System.Drawing.Size(309, 122);
             this.btnClientsDetailBack.TabIndex = 12;
@@ -125,7 +124,7 @@
             // 
             this.btnClientsDetailSave.Font = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.btnClientsDetailSave.Location = new System.Drawing.Point(586, 644);
-            this.btnClientsDetailSave.Margin = new System.Windows.Forms.Padding(2);
+            this.btnClientsDetailSave.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClientsDetailSave.Name = "btnClientsDetailSave";
             this.btnClientsDetailSave.Size = new System.Drawing.Size(309, 122);
             this.btnClientsDetailSave.TabIndex = 11;
@@ -140,7 +139,7 @@
             this.lblCLientsPrimaryHeader.Location = new System.Drawing.Point(500, -2);
             this.lblCLientsPrimaryHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblCLientsPrimaryHeader.Name = "lblCLientsPrimaryHeader";
-            this.lblCLientsPrimaryHeader.Size = new System.Drawing.Size(696, 67);
+            this.lblCLientsPrimaryHeader.Size = new System.Drawing.Size(554, 53);
             this.lblCLientsPrimaryHeader.TabIndex = 13;
             this.lblCLientsPrimaryHeader.Text = "Tranquillity Client Primary Details";
             // 
@@ -151,7 +150,7 @@
             this.lblClientsPrimaryClientName.Location = new System.Drawing.Point(34, 16);
             this.lblClientsPrimaryClientName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClientsPrimaryClientName.Name = "lblClientsPrimaryClientName";
-            this.lblClientsPrimaryClientName.Size = new System.Drawing.Size(76, 32);
+            this.lblClientsPrimaryClientName.Size = new System.Drawing.Size(61, 25);
             this.lblClientsPrimaryClientName.TabIndex = 14;
             this.lblClientsPrimaryClientName.Text = "label1";
             // 
@@ -161,12 +160,12 @@
             this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.contextMenuStrip3.Name = "contextMenuStrip1";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(174, 28);
+            this.contextMenuStrip3.Size = new System.Drawing.Size(148, 26);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(173, 24);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(147, 22);
             this.toolStripMenuItem1.Text = "Delete Record";
             this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
@@ -176,35 +175,23 @@
             this.contextMenuStrip5.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem3});
             this.contextMenuStrip5.Name = "contextMenuStrip1";
-            this.contextMenuStrip5.Size = new System.Drawing.Size(174, 28);
+            this.contextMenuStrip5.Size = new System.Drawing.Size(148, 26);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(173, 24);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(147, 22);
             this.toolStripMenuItem3.Text = "Delete Record";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // btnClientMedicalHistory
-            // 
-            this.btnClientMedicalHistory.Font = new System.Drawing.Font("Segoe UI Semibold", 18F);
-            this.btnClientMedicalHistory.Location = new System.Drawing.Point(1196, 644);
-            this.btnClientMedicalHistory.Margin = new System.Windows.Forms.Padding(2);
-            this.btnClientMedicalHistory.Name = "btnClientMedicalHistory";
-            this.btnClientMedicalHistory.Size = new System.Drawing.Size(309, 122);
-            this.btnClientMedicalHistory.TabIndex = 20;
-            this.btnClientMedicalHistory.Text = "Client\'s Medical History";
-            this.btnClientMedicalHistory.UseVisualStyleBackColor = true;
-            this.btnClientMedicalHistory.Click += new System.EventHandler(this.btnClientMedicalHistory_Click);
             // 
             // tabClientsPrimaryProductUsage
             // 
             this.tabClientsPrimaryProductUsage.Controls.Add(this.lblClientsSecondaryProductUsage);
             this.tabClientsPrimaryProductUsage.Controls.Add(this.dgvClientsSecondaryProductUsage);
-            this.tabClientsPrimaryProductUsage.Location = new System.Drawing.Point(4, 31);
+            this.tabClientsPrimaryProductUsage.Location = new System.Drawing.Point(4, 27);
             this.tabClientsPrimaryProductUsage.Name = "tabClientsPrimaryProductUsage";
-            this.tabClientsPrimaryProductUsage.Padding = new System.Windows.Forms.Padding(3);
-            this.tabClientsPrimaryProductUsage.Size = new System.Drawing.Size(1522, 504);
+            this.tabClientsPrimaryProductUsage.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabClientsPrimaryProductUsage.Size = new System.Drawing.Size(1522, 508);
             this.tabClientsPrimaryProductUsage.TabIndex = 4;
             this.tabClientsPrimaryProductUsage.Text = "ProductUsage";
             this.tabClientsPrimaryProductUsage.UseVisualStyleBackColor = true;
@@ -216,7 +203,7 @@
             this.lblClientsSecondaryProductUsage.Location = new System.Drawing.Point(5, 19);
             this.lblClientsSecondaryProductUsage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClientsSecondaryProductUsage.Name = "lblClientsSecondaryProductUsage";
-            this.lblClientsSecondaryProductUsage.Size = new System.Drawing.Size(145, 28);
+            this.lblClientsSecondaryProductUsage.Size = new System.Drawing.Size(117, 21);
             this.lblClientsSecondaryProductUsage.TabIndex = 21;
             this.lblClientsSecondaryProductUsage.Text = "Product Usage";
             // 
@@ -225,7 +212,7 @@
             this.dgvClientsSecondaryProductUsage.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientsSecondaryProductUsage.ContextMenuStrip = this.contextMenuStrip5;
             this.dgvClientsSecondaryProductUsage.Location = new System.Drawing.Point(5, 54);
-            this.dgvClientsSecondaryProductUsage.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvClientsSecondaryProductUsage.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvClientsSecondaryProductUsage.Name = "dgvClientsSecondaryProductUsage";
             this.dgvClientsSecondaryProductUsage.RowHeadersWidth = 51;
             this.dgvClientsSecondaryProductUsage.RowTemplate.Height = 24;
@@ -237,10 +224,10 @@
             // 
             this.tabClientsPrimaryOrders.Controls.Add(this.dgvClientsPrimaryOrders);
             this.tabClientsPrimaryOrders.Controls.Add(this.lblClientsPrimaryOrders);
-            this.tabClientsPrimaryOrders.Location = new System.Drawing.Point(4, 31);
+            this.tabClientsPrimaryOrders.Location = new System.Drawing.Point(4, 27);
             this.tabClientsPrimaryOrders.Name = "tabClientsPrimaryOrders";
-            this.tabClientsPrimaryOrders.Padding = new System.Windows.Forms.Padding(3);
-            this.tabClientsPrimaryOrders.Size = new System.Drawing.Size(1522, 504);
+            this.tabClientsPrimaryOrders.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabClientsPrimaryOrders.Size = new System.Drawing.Size(1522, 508);
             this.tabClientsPrimaryOrders.TabIndex = 1;
             this.tabClientsPrimaryOrders.Text = "Orders";
             this.tabClientsPrimaryOrders.UseVisualStyleBackColor = true;
@@ -250,7 +237,7 @@
             this.dgvClientsPrimaryOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientsPrimaryOrders.ContextMenuStrip = this.contextMenuStrip2;
             this.dgvClientsPrimaryOrders.Location = new System.Drawing.Point(5, 48);
-            this.dgvClientsPrimaryOrders.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvClientsPrimaryOrders.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvClientsPrimaryOrders.Name = "dgvClientsPrimaryOrders";
             this.dgvClientsPrimaryOrders.RowHeadersWidth = 51;
             this.dgvClientsPrimaryOrders.RowTemplate.Height = 24;
@@ -264,7 +251,7 @@
             this.lblClientsPrimaryOrders.Location = new System.Drawing.Point(5, 16);
             this.lblClientsPrimaryOrders.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClientsPrimaryOrders.Name = "lblClientsPrimaryOrders";
-            this.lblClientsPrimaryOrders.Size = new System.Drawing.Size(73, 28);
+            this.lblClientsPrimaryOrders.Size = new System.Drawing.Size(60, 21);
             this.lblClientsPrimaryOrders.TabIndex = 17;
             this.lblClientsPrimaryOrders.Text = "Orders";
             // 
@@ -273,10 +260,10 @@
             this.tabClientsPrimaryAppointments.Controls.Add(this.dgvClientsPrimaryAppointments);
             this.tabClientsPrimaryAppointments.Controls.Add(this.lblClientsPrimaryAppointments);
             this.tabClientsPrimaryAppointments.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.tabClientsPrimaryAppointments.Location = new System.Drawing.Point(4, 31);
+            this.tabClientsPrimaryAppointments.Location = new System.Drawing.Point(4, 27);
             this.tabClientsPrimaryAppointments.Name = "tabClientsPrimaryAppointments";
-            this.tabClientsPrimaryAppointments.Padding = new System.Windows.Forms.Padding(3);
-            this.tabClientsPrimaryAppointments.Size = new System.Drawing.Size(1522, 504);
+            this.tabClientsPrimaryAppointments.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabClientsPrimaryAppointments.Size = new System.Drawing.Size(1522, 508);
             this.tabClientsPrimaryAppointments.TabIndex = 0;
             this.tabClientsPrimaryAppointments.Text = "Appointments";
             this.tabClientsPrimaryAppointments.UseVisualStyleBackColor = true;
@@ -286,7 +273,7 @@
             this.dgvClientsPrimaryAppointments.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientsPrimaryAppointments.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvClientsPrimaryAppointments.Location = new System.Drawing.Point(5, 51);
-            this.dgvClientsPrimaryAppointments.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvClientsPrimaryAppointments.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvClientsPrimaryAppointments.Name = "dgvClientsPrimaryAppointments";
             this.dgvClientsPrimaryAppointments.RowHeadersWidth = 51;
             this.dgvClientsPrimaryAppointments.RowTemplate.Height = 24;
@@ -300,7 +287,7 @@
             this.lblClientsPrimaryAppointments.Location = new System.Drawing.Point(5, 19);
             this.lblClientsPrimaryAppointments.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClientsPrimaryAppointments.Name = "lblClientsPrimaryAppointments";
-            this.lblClientsPrimaryAppointments.Size = new System.Drawing.Size(142, 28);
+            this.lblClientsPrimaryAppointments.Size = new System.Drawing.Size(115, 21);
             this.lblClientsPrimaryAppointments.TabIndex = 15;
             this.lblClientsPrimaryAppointments.Text = "Appointments";
             // 
@@ -322,11 +309,11 @@
             // 
             this.tabClientsPrimaryGeneral.Controls.Add(this.dgvClientsPrimaryGeneral);
             this.tabClientsPrimaryGeneral.Controls.Add(this.lblClientsPrimaryGeneral);
-            this.tabClientsPrimaryGeneral.Location = new System.Drawing.Point(4, 31);
-            this.tabClientsPrimaryGeneral.Margin = new System.Windows.Forms.Padding(2);
+            this.tabClientsPrimaryGeneral.Location = new System.Drawing.Point(4, 27);
+            this.tabClientsPrimaryGeneral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabClientsPrimaryGeneral.Name = "tabClientsPrimaryGeneral";
-            this.tabClientsPrimaryGeneral.Padding = new System.Windows.Forms.Padding(2);
-            this.tabClientsPrimaryGeneral.Size = new System.Drawing.Size(1522, 504);
+            this.tabClientsPrimaryGeneral.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabClientsPrimaryGeneral.Size = new System.Drawing.Size(1522, 508);
             this.tabClientsPrimaryGeneral.TabIndex = 5;
             this.tabClientsPrimaryGeneral.Text = "General";
             this.tabClientsPrimaryGeneral.UseVisualStyleBackColor = true;
@@ -336,7 +323,7 @@
             this.dgvClientsPrimaryGeneral.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientsPrimaryGeneral.ContextMenuStrip = this.contextMenuStrip3;
             this.dgvClientsPrimaryGeneral.Location = new System.Drawing.Point(4, 43);
-            this.dgvClientsPrimaryGeneral.Margin = new System.Windows.Forms.Padding(2);
+            this.dgvClientsPrimaryGeneral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvClientsPrimaryGeneral.Name = "dgvClientsPrimaryGeneral";
             this.dgvClientsPrimaryGeneral.RowHeadersWidth = 51;
             this.dgvClientsPrimaryGeneral.RowTemplate.Height = 24;
@@ -350,7 +337,7 @@
             this.lblClientsPrimaryGeneral.Location = new System.Drawing.Point(4, 11);
             this.lblClientsPrimaryGeneral.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClientsPrimaryGeneral.Name = "lblClientsPrimaryGeneral";
-            this.lblClientsPrimaryGeneral.Size = new System.Drawing.Size(82, 28);
+            this.lblClientsPrimaryGeneral.Size = new System.Drawing.Size(66, 21);
             this.lblClientsPrimaryGeneral.TabIndex = 17;
             this.lblClientsPrimaryGeneral.Text = "General";
             // 
@@ -362,10 +349,10 @@
             this.tabClientsPrimaryImages.Controls.Add(this.btnNext);
             this.tabClientsPrimaryImages.Controls.Add(this.btnUpload);
             this.tabClientsPrimaryImages.Controls.Add(this.pictureBox);
-            this.tabClientsPrimaryImages.Location = new System.Drawing.Point(4, 31);
+            this.tabClientsPrimaryImages.Location = new System.Drawing.Point(4, 27);
             this.tabClientsPrimaryImages.Name = "tabClientsPrimaryImages";
-            this.tabClientsPrimaryImages.Padding = new System.Windows.Forms.Padding(3);
-            this.tabClientsPrimaryImages.Size = new System.Drawing.Size(1522, 504);
+            this.tabClientsPrimaryImages.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabClientsPrimaryImages.Size = new System.Drawing.Size(1522, 508);
             this.tabClientsPrimaryImages.TabIndex = 6;
             this.tabClientsPrimaryImages.Text = "Images";
             this.tabClientsPrimaryImages.UseVisualStyleBackColor = true;
@@ -375,7 +362,7 @@
             this.lblImageCount.AutoSize = true;
             this.lblImageCount.Location = new System.Drawing.Point(18, 337);
             this.lblImageCount.Name = "lblImageCount";
-            this.lblImageCount.Size = new System.Drawing.Size(60, 24);
+            this.lblImageCount.Size = new System.Drawing.Size(46, 18);
             this.lblImageCount.TabIndex = 25;
             this.lblImageCount.Text = "label1";
             // 
@@ -383,7 +370,7 @@
             // 
             this.btnPrevious.Font = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.btnPrevious.Location = new System.Drawing.Point(2, 382);
-            this.btnPrevious.Margin = new System.Windows.Forms.Padding(2);
+            this.btnPrevious.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnPrevious.Name = "btnPrevious";
             this.btnPrevious.Size = new System.Drawing.Size(309, 82);
             this.btnPrevious.TabIndex = 24;
@@ -395,7 +382,7 @@
             // 
             this.btnDelete.Font = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.btnDelete.Location = new System.Drawing.Point(724, 396);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(302, 82);
             this.btnDelete.TabIndex = 23;
@@ -407,7 +394,7 @@
             // 
             this.btnNext.Font = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.btnNext.Location = new System.Drawing.Point(1128, 382);
-            this.btnNext.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNext.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(309, 82);
             this.btnNext.TabIndex = 22;
@@ -419,7 +406,7 @@
             // 
             this.btnUpload.Font = new System.Drawing.Font("Segoe UI Semibold", 18F);
             this.btnUpload.Location = new System.Drawing.Point(411, 396);
-            this.btnUpload.Margin = new System.Windows.Forms.Padding(2);
+            this.btnUpload.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnUpload.Name = "btnUpload";
             this.btnUpload.Size = new System.Drawing.Size(309, 82);
             this.btnUpload.TabIndex = 21;
@@ -440,14 +427,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1443, 795);
             this.Controls.Add(this.tabCtrlClientsPrimary);
-            this.Controls.Add(this.btnClientMedicalHistory);
             this.Controls.Add(this.lblClientsPrimaryClientName);
             this.Controls.Add(this.lblCLientsPrimaryHeader);
             this.Controls.Add(this.btnClientsDetailBack);
             this.Controls.Add(this.btnClientsDetailSave);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "ClientsPrimary";
             this.Text = "ClientsPrimary";
             this.Load += new System.EventHandler(this.ClientsPrimary_Load);
@@ -489,7 +476,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
-        private System.Windows.Forms.Button btnClientMedicalHistory;
         private System.Windows.Forms.TabPage tabClientsPrimaryProductUsage;
         private System.Windows.Forms.Label lblClientsSecondaryProductUsage;
         private System.Windows.Forms.DataGridView dgvClientsSecondaryProductUsage;

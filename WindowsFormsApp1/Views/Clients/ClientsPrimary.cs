@@ -1,4 +1,6 @@
-﻿using MySql.Data.MySqlClient;
+﻿using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -383,6 +385,8 @@ namespace WindowsFormsApp1.Views.Clients
                 DataTable orderChanges = ((DataTable)orderBindingSource.DataSource).GetChanges();
                 DataTable productUsageChanges = ((DataTable)productUsageBindingSource.DataSource).GetChanges();
 
+
+
                 if (generalChanges != null)
                 {
                     handler.UpdateClient(generalChanges);
@@ -392,6 +396,22 @@ namespace WindowsFormsApp1.Views.Clients
 
                 if (appointmentChanges != null)
                 {
+                    foreach (DataRow row in appointmentChanges.Rows)
+                    {
+                        if (row.RowState != DataRowState.Deleted)
+                        {
+                            if (row["StaffID"] == DBNull.Value || row["AppointmentDate"] == DBNull.Value)
+                            {
+                                MessageBox.Show("Please ensure all appointments have a Staff member and an Appointment Date filled in before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+
+                            if (row["IsNewClient"] == DBNull.Value)
+                            {
+                                row["IsNewClient"] = 0;
+                            }
+                        }
+                    }
                     handler.UpdateAppointments(appointmentChanges, clientId);
                     MessageBox.Show("Client appointments updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadClientAppointments();
@@ -399,6 +419,17 @@ namespace WindowsFormsApp1.Views.Clients
 
                 if (orderChanges != null)
                 {
+                    foreach (DataRow row in orderChanges.Rows)
+                    {
+                        if (row.RowState != DataRowState.Deleted)
+                        {
+                            if (row["OrderDate"] == DBNull.Value)
+                            {
+                                MessageBox.Show("Please ensure orders have an Order Date filled in before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                    }
                     handler.UpdateOrders(orderChanges, clientId);
                     MessageBox.Show("Client orders updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadClientOrders();
@@ -406,6 +437,17 @@ namespace WindowsFormsApp1.Views.Clients
 
                 if (productUsageChanges != null)
                 {
+                    foreach (DataRow row in productUsageChanges.Rows)
+                    {
+                        if (row.RowState != DataRowState.Deleted)
+                        {
+                            if (row["PurchaseDate"] == DBNull.Value || row["EstimatedFinishDate"] == DBNull.Value)
+                            {
+                                MessageBox.Show("Please ensure product usage has a Purchase Date and Estimated Finish Date filled in before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                    }
                     handler.UpdateProductUsage(productUsageChanges, clientId);
                     MessageBox.Show("Client product usage updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LoadClientProductUsage();
@@ -484,7 +526,7 @@ namespace WindowsFormsApp1.Views.Clients
                 dgv.Rows[e.RowIndex].Cells[e.ColumnIndex].Selected = true;
 
                 Rectangle cellRect = dgv.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, false);
-                Point cellLocation = dgv.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
+                System.Drawing.Point cellLocation = dgv.GetCellDisplayRectangle(e.ColumnIndex, e.RowIndex, true).Location;
                 contextMenu.Show(dgv, cellLocation);
             }
         }
@@ -538,7 +580,7 @@ namespace WindowsFormsApp1.Views.Clients
 
         private void btnClientMedicalHistory_Click(object sender, EventArgs e)
         {
-            AppointmentClientHistory appointmentClientHistory = new AppointmentClientHistory(handler.GetAppointmentID(clientId), new AppointmentsView());
+            AppointmentClientHistory appointmentClientHistory = new AppointmentClientHistory(handler.GetAppointmentID(clientId), clientId, new AppointmentsView());
             appointmentClientHistory.Show();
             this.Hide();
         }
@@ -576,7 +618,7 @@ namespace WindowsFormsApp1.Views.Clients
             }
         }
 
-        private void btnUpload_Click(object sender, EventArgs e)
+        private async void btnUpload_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -586,10 +628,15 @@ namespace WindowsFormsApp1.Views.Clients
                 {
                     foreach (string fileName in openFileDialog.FileNames)
                     {
-                        string destFile = Path.Combine(Application.StartupPath, "Images", Path.GetFileName(fileName));
-                        Directory.CreateDirectory(Path.GetDirectoryName(destFile));
-                        File.Copy(fileName, destFile, true);
-                        handler.SaveImagePathToDatabase(destFile, clientId);
+                        try
+                        {
+                            string cloudinaryUrl = await handler.UploadImageToCloudinary(fileName, clientId);
+                            handler.SaveImageUrlToDatabase(cloudinaryUrl, clientId);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error uploading {fileName}: {ex.Message}", "Upload Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     handler.LoadImagesForClient(clientId);
                     UpdateImageDisplay();
@@ -597,28 +644,23 @@ namespace WindowsFormsApp1.Views.Clients
             }
         }
 
-
-
         private void btnNext_Click(object sender, EventArgs e)
         {
-            if (handler.currentImageIndex < handler.imagePaths.Count - 1)
+            if (handler.currentImageIndex < handler.imageUrls.Count - 1)
             {
                 handler.currentImageIndex++;
                 UpdateImageDisplay();
             }
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private async void btnDelete_Click(object sender, EventArgs e)
         {
-            if (handler.currentImageIndex >= 0 && handler.currentImageIndex < handler.imagePaths.Count)
+            if (handler.currentImageIndex >= 0 && handler.currentImageIndex < handler.imageUrls.Count)
             {
-                string fileToDelete = handler.imagePaths[handler.currentImageIndex];
-                handler.DeleteImageFromDatabase(fileToDelete, clientId);
-                if (File.Exists(fileToDelete))
-                {
-                    File.Delete(fileToDelete);
-                }
-                handler.LoadImagesForClient(clientId); // Reload images after deletion
+                string urlToDelete = handler.imageUrls[handler.currentImageIndex];
+                await handler.DeleteImageFromCloudinary(urlToDelete);
+                handler.DeleteImageFromDatabase(urlToDelete, clientId);
+                handler.LoadImagesForClient(clientId);
                 UpdateImageDisplay();
             }
         }
@@ -632,13 +674,13 @@ namespace WindowsFormsApp1.Views.Clients
             }
         }
 
-        private void UpdateImageDisplay()
+        private async void UpdateImageDisplay()
         {
-            if (handler.currentImageIndex >= 0 && handler.currentImageIndex < handler.imagePaths.Count)
+            if (handler.currentImageIndex >= 0 && handler.currentImageIndex < handler.imageUrls.Count)
             {
                 pictureBox.Image?.Dispose();
-                pictureBox.Image = Image.FromFile(handler.imagePaths[handler.currentImageIndex]);
-                lblImageCount.Text = $"Image {handler.currentImageIndex + 1} of {handler.imagePaths.Count}";
+                pictureBox.Image = await handler.DownloadImageFromCloudinary(handler.imageUrls[handler.currentImageIndex]);
+                lblImageCount.Text = $"Image {handler.currentImageIndex + 1} of {handler.imageUrls.Count}";
             }
             else
             {
@@ -646,8 +688,8 @@ namespace WindowsFormsApp1.Views.Clients
                 lblImageCount.Text = "No images";
             }
             btnPrevious.Enabled = handler.currentImageIndex > 0;
-            btnNext.Enabled = handler.currentImageIndex < handler.imagePaths.Count - 1;
-            btnDelete.Enabled = handler.imagePaths.Count > 0;
+            btnNext.Enabled = handler.currentImageIndex < handler.imageUrls.Count - 1;
+            btnDelete.Enabled = handler.imageUrls.Count > 0;
         }
     }
 }

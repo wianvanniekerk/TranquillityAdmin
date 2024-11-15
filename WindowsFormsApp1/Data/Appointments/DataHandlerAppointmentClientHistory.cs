@@ -279,7 +279,7 @@ namespace WindowsFormsApp1.Data.Appointments
         }
 
 
-        public void UpdateAppointmentClientHistory(DataTable changes, int appointmentID)
+        public void UpdateAppointmentClientHistory(DataTable changes, int appointmentID, int clientID)
         {
             using (MySqlConnection connection = new MySqlConnection(connect))
             {
@@ -299,6 +299,7 @@ namespace WindowsFormsApp1.Data.Appointments
                             if (row.RowState != DataRowState.Deleted)
                             {
                                 row["AppointmentID"] = appointmentID;
+                                row["ClientID"] = clientID;
                                 row["CreatedAt"] = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                             }
                         }

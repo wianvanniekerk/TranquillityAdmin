@@ -100,10 +100,12 @@ namespace WindowsFormsApp1.Views.Appointments
             if (e.RowIndex >= 0 && e.ColumnIndex == dgvAppointmentsView.Columns["HistoryButton"].Index)
             {
                 object cellValue = dgvAppointmentsView.Rows[e.RowIndex].Cells["AppointmentID"].Value;
+                object cellValueClient = dgvAppointmentsView.Rows[e.RowIndex].Cells["ClientID"].Value;
                 if (cellValue != null && cellValue != DBNull.Value)
                 {
                     int appointmentId = Convert.ToInt32(cellValue);
-                    OpenAppointmentClientHistory(appointmentId);
+                    int clientId = Convert.ToInt32(cellValueClient);
+                    OpenAppointmentClientHistory(appointmentId, clientId);
                 }
             }
         }
@@ -282,9 +284,9 @@ namespace WindowsFormsApp1.Views.Appointments
             dgvAppointmentsView.Columns.Add(reminderSentCheckBox);
         }
 
-        private void OpenAppointmentClientHistory(int appointmentId)
+        private void OpenAppointmentClientHistory(int appointmentId, int clientId)
         {
-            AppointmentClientHistory appointmentClientHistoryForm = new AppointmentClientHistory(appointmentId, this);
+            AppointmentClientHistory appointmentClientHistoryForm = new AppointmentClientHistory(appointmentId, clientId, this);
             this.Hide();
             appointmentClientHistoryForm.Show();
         }

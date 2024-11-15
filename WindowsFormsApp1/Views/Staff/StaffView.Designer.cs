@@ -96,12 +96,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(2041, 978);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1924, 978);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblStaffViewHeader);
             this.Controls.Add(this.btnStaffViewSave);
             this.Controls.Add(this.btnStaffViewBack);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "StaffView";
             this.Text = "StaffView";
             this.Load += new System.EventHandler(this.StaffView_Load);

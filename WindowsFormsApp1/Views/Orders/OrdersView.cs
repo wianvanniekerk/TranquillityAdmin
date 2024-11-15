@@ -33,6 +33,17 @@ namespace WindowsFormsApp1.Views.Orders
                 DataTable changes = ((DataTable)dgvOrdersView.DataSource).GetChanges();
                 if (changes != null)
                 {
+                    foreach (DataRow row in changes.Rows)
+                    {
+                        if (row.RowState != DataRowState.Deleted)
+                        {
+                            if (row["OrderDate"] == DBNull.Value)
+                            {
+                                MessageBox.Show("Please ensure orders have an Order Date filled in before saving.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                return;
+                            }
+                        }
+                    }
                     handler.UpdateOrders(changes);
                     MessageBox.Show("Changes saved successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshOrdersView();

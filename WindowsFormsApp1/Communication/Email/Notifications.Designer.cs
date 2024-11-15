@@ -51,10 +51,10 @@
             this.chkListNotifications.ContextMenuStrip = this.contextMenuStrip2;
             this.chkListNotifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.chkListNotifications.FormattingEnabled = true;
-            this.chkListNotifications.Location = new System.Drawing.Point(794, 168);
-            this.chkListNotifications.Margin = new System.Windows.Forms.Padding(2);
+            this.chkListNotifications.Location = new System.Drawing.Point(1059, 207);
+            this.chkListNotifications.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkListNotifications.Name = "chkListNotifications";
-            this.chkListNotifications.Size = new System.Drawing.Size(697, 466);
+            this.chkListNotifications.Size = new System.Drawing.Size(928, 571);
             this.chkListNotifications.TabIndex = 1;
             // 
             // contextMenuStrip2
@@ -75,10 +75,10 @@
             // btnAddToList
             // 
             this.btnAddToList.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
-            this.btnAddToList.Location = new System.Drawing.Point(497, 131);
-            this.btnAddToList.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAddToList.Location = new System.Drawing.Point(663, 161);
+            this.btnAddToList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAddToList.Name = "btnAddToList";
-            this.btnAddToList.Size = new System.Drawing.Size(160, 37);
+            this.btnAddToList.Size = new System.Drawing.Size(213, 46);
             this.btnAddToList.TabIndex = 2;
             this.btnAddToList.Text = "Add to List";
             this.btnAddToList.UseVisualStyleBackColor = true;
@@ -87,10 +87,10 @@
             // txtAddToList
             // 
             this.txtAddToList.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
-            this.txtAddToList.Location = new System.Drawing.Point(129, 132);
-            this.txtAddToList.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAddToList.Location = new System.Drawing.Point(172, 162);
+            this.txtAddToList.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAddToList.Name = "txtAddToList";
-            this.txtAddToList.Size = new System.Drawing.Size(364, 39);
+            this.txtAddToList.Size = new System.Drawing.Size(484, 39);
             this.txtAddToList.TabIndex = 3;
             // 
             // chkListToDo
@@ -98,10 +98,10 @@
             this.chkListToDo.ContextMenuStrip = this.contextMenuStrip1;
             this.chkListToDo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.chkListToDo.FormattingEnabled = true;
-            this.chkListToDo.Location = new System.Drawing.Point(129, 168);
-            this.chkListToDo.Margin = new System.Windows.Forms.Padding(2);
+            this.chkListToDo.Location = new System.Drawing.Point(172, 207);
+            this.chkListToDo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.chkListToDo.Name = "chkListToDo";
-            this.chkListToDo.Size = new System.Drawing.Size(528, 466);
+            this.chkListToDo.Size = new System.Drawing.Size(703, 571);
             this.chkListToDo.TabIndex = 4;
             // 
             // contextMenuStrip1
@@ -123,8 +123,7 @@
             // 
             this.lblClientsPrimaryClientName.AutoSize = true;
             this.lblClientsPrimaryClientName.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
-            this.lblClientsPrimaryClientName.Location = new System.Drawing.Point(124, 98);
-            this.lblClientsPrimaryClientName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblClientsPrimaryClientName.Location = new System.Drawing.Point(165, 121);
             this.lblClientsPrimaryClientName.Name = "lblClientsPrimaryClientName";
             this.lblClientsPrimaryClientName.Size = new System.Drawing.Size(121, 32);
             this.lblClientsPrimaryClientName.TabIndex = 16;
@@ -134,8 +133,7 @@
             // 
             this.lblCLientsPrimaryHeader.AutoSize = true;
             this.lblCLientsPrimaryHeader.Font = new System.Drawing.Font("Haettenschweiler", 38F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCLientsPrimaryHeader.Location = new System.Drawing.Point(525, 17);
-            this.lblCLientsPrimaryHeader.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblCLientsPrimaryHeader.Location = new System.Drawing.Point(700, 21);
             this.lblCLientsPrimaryHeader.Name = "lblCLientsPrimaryHeader";
             this.lblCLientsPrimaryHeader.Size = new System.Drawing.Size(519, 67);
             this.lblCLientsPrimaryHeader.TabIndex = 15;
@@ -145,8 +143,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 14F);
-            this.label1.Location = new System.Drawing.Point(790, 131);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(1053, 161);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(236, 32);
             this.label1.TabIndex = 17;
@@ -155,10 +152,10 @@
             // btnNotificationsBack
             // 
             this.btnNotificationsBack.Font = new System.Drawing.Font("Segoe UI Semibold", 18F);
-            this.btnNotificationsBack.Location = new System.Drawing.Point(129, 666);
-            this.btnNotificationsBack.Margin = new System.Windows.Forms.Padding(2);
+            this.btnNotificationsBack.Location = new System.Drawing.Point(172, 820);
+            this.btnNotificationsBack.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnNotificationsBack.Name = "btnNotificationsBack";
-            this.btnNotificationsBack.Size = new System.Drawing.Size(291, 115);
+            this.btnNotificationsBack.Size = new System.Drawing.Size(388, 142);
             this.btnNotificationsBack.TabIndex = 18;
             this.btnNotificationsBack.Text = "Back to Dashboard";
             this.btnNotificationsBack.UseVisualStyleBackColor = true;
@@ -168,8 +165,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft JhengHei", 10F);
-            this.label2.Location = new System.Drawing.Point(1000, 137);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(1333, 169);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(343, 22);
             this.label2.TabIndex = 20;
@@ -177,9 +173,10 @@
             // 
             // Notifications
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1924, 862);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnNotificationsBack);
             this.Controls.Add(this.label1);
@@ -189,7 +186,7 @@
             this.Controls.Add(this.txtAddToList);
             this.Controls.Add(this.btnAddToList);
             this.Controls.Add(this.chkListNotifications);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Notifications";
             this.Text = "Notifications";
             this.contextMenuStrip2.ResumeLayout(false);
